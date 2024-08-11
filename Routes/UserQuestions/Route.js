@@ -32,9 +32,9 @@ router.get("/alladdedquestions", Auth,async (req, res) => {
         const  userId  = req.user.id;
         console.log(userId);
         const questions = await prisma.question.findMany({
-            where: {
-userId
-            }
+ where:{
+    user:req.user
+ }
         });
         res.status(200).json(questions);
     } catch (error) {
