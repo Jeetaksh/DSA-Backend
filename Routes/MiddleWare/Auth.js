@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 async function Auth(req, res, next) {
     try{
     const clerkUserId = req.header('clerkUserId');
+    console.log(clerkUserId);
     if (!clerkUserId) {
         console.log("issue")
         throw Error("clerkid not found")
@@ -18,13 +19,14 @@ async function Auth(req, res, next) {
   if(!user){
 throw Error("usr not found")
   }
-
+console.log(user);
   req.user = user;
   next();
 
     }
     }catch(e){
         console.log("error");
+        console.log("not auth");
  return res.json({
     message:"not auth"
 })

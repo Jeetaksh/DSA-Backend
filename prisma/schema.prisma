@@ -20,7 +20,10 @@ model Question {
   notes             Note[]
   solvedBy          SolvedBy[]
   revisionQuestions RevisionQuestion[]
+  user              User?                @relation(fields: [userId], references: [id])  // New relation to User
+  userId            String?              @db.ObjectId  // Foreign key for User
 }
+
 
 model Topic {
   id        String     @id @default(auto()) @map("_id") @db.ObjectId
@@ -52,6 +55,8 @@ model User {
   solvedQuestions   SolvedBy[]
   notes             Note[]
   revisionQuestions RevisionQuestion[]
+
+  Question Question[]
 }
 
 model SolvedBy {

@@ -15,6 +15,8 @@ const noteRouter = require("./Routes/NoteRoutes/Route");
 
 const questionRoutes = require("./Routes/TopicRoutes/Routes");
 
+const addQuestion = require("./Routes/UserQuestions/Route");
+
 const userRoutes = require("./Routes/UserRoutes/Route");
 const revisionRouter = require("./Routes/RevisionQuestio/revisionRouter");
 const Auth = require('./Routes/MiddleWare/Auth');
@@ -33,6 +35,8 @@ app.use(userRoutes);
 
 app.use(revisionRouter);
 
+
+app.use(addQuestion);
 
 app.get("/",async(req,res)=>{  
 
