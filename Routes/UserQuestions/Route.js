@@ -27,13 +27,13 @@ router.post("/addquestion", Auth,async (req, res) => {
 
 
 
-router.get("/alladdedquestions/", Auth,async (req, res) => {
+router.get("/alladdedquestions", Auth,async (req, res) => {
     try {
         const  userId  = req.user.id;
         console.log(userId);
         const questions = await prisma.question.findMany({
             where: {
-                userId: userId,
+userId
             }
         });
         res.status(200).json(questions);
