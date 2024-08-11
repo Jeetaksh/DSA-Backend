@@ -21,7 +21,7 @@ model Question {
   solvedBy          SolvedBy[]
   revisionQuestions RevisionQuestion[]
   user              User?                @relation(fields: [userId], references: [id])  // New relation to User
-  userId            String?              @db.ObjectId  // Foreign key for User
+  userId            String?              @db.ObjectId   // Foreign key for User
 }
 
 
