@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 
 router.post("/addquestion", Auth,async (req, res) => {
     try {
+        console.log("added question function callesd")
         const userId = req.user.id;
         const {  questionData } = req.body;
         const newQuestion = await prisma.question.create({

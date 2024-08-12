@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 async function Auth(req, res, next) {
     try{
-    const clerkUserId = req.header('clerkUserId');
+    const clerkUserId = req.header('clerkUserId')||req.body.clerkUserId;
     console.log(clerkUserId);
     if (!clerkUserId) {
         console.log("issue")
