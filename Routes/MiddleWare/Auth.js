@@ -11,12 +11,16 @@ async function Auth(req, res, next) {
         
     }
     else{
-  const user=  await prisma.user.findUnique({
+  
+      const user=  await prisma.user.findUnique({
     where:{
         clerkUserId:clerkUserId
     }
   })
+
+
   if(!user){
+    console.log("user not found in auth");
 throw Error("usr not found")
   }
 console.log(user);

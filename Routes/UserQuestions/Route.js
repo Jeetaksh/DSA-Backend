@@ -19,8 +19,8 @@ router.post("/addquestion", Auth,async (req, res) => {
         });
         res.status(200).json({"message":"added succ"});
     } catch (error) {
-        console.error('Error adding question:', error);
-        res.status(500).json({ error: 'Failed to add question' });
+        console.error('Error adding question:', error.message);
+        res.status(500).json({ error: 'Failed to add question' ,message:e.message});
     }
 });
 
